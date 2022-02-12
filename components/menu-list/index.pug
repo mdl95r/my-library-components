@@ -1,0 +1,29 @@
+mixin menuList(data)
+	-
+		const defaultData = {
+			items: [
+				{
+					item: 'Отделка',
+					submenu: []
+				},
+			]
+		}
+		
+		data = Object.assign(defaultData, data);
+
+		const { items } = data
+
+	nav(elem="nav")&attributes(attributes)
+		ul(elem="nav-list")
+			each el, i in items
+				li(elem="nav-item" mod=(el.submenu ? 'submenu' : ''))
+					if i === 0
+						a(elem="nav-link" mod="active" href="#") #{el.item}
+					else
+						a(elem="nav-link" href="#") #{el.item}
+					if el.submenu
+						ul.js-submenu(elem="submenu")
+							each subItem in el.submenu
+								li(elem="submenu-item")
+									a(elem="submenu-link" href="#") #{subItem}
+		

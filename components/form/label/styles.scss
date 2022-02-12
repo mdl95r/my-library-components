@@ -1,0 +1,11 @@
+.label {
+	display: block;
+	position: relative;
+	font-size: 18px;
+	padding-left: 46px;
+	margin-bottom: 15px;
+	user-select: none;
+	@media (min-width: $media-lg) {
+		font-size: 20px;
+	}
+}

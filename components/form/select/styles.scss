@@ -1,0 +1,87 @@
+.select {
+	&__head {
+		position: relative;
+		height: 56px;
+		padding: 19px 20px;
+		margin-bottom: 20px;
+		border: 2px solid #000;
+		border-radius: 4px;
+		cursor: pointer;
+		user-select: none;
+		@media (min-width: $media-lg) {
+			padding-left: 34px;
+			padding-right: 34px;
+		}
+
+		&:after {
+			position: absolute;
+			top: calc(50% - 13px);
+			right: 16px;
+			z-index: 1;
+			content: "";
+			width: 19px;
+			height: 19px;
+			border-color: #000;
+			border-style: solid;
+			border-width: 0 2px 2px 0;
+			transform: rotate(45deg);
+			transition: .2s;
+		}
+	}
+	&_open {
+		border-radius: 0;
+		&:after {
+			top: calc(50% - 5px);
+			transform: rotate(225deg);
+			transition: .2s;
+		}
+		.select {
+			&__options {
+				opacity: 1;
+				overflow: visible;
+				visibility: visible;
+				transition: .2s;
+			}
+		}
+	}
+	&__label {
+		padding-left: 0;
+	}
+	&__options {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 2;
+		background-color: #fff;
+		width: calc(100% + 4px);
+		margin: 0 -2px;
+		overflow: hidden;
+		visibility: hidden;
+		opacity: 0;
+		border: 2px solid #000;
+		border-top: none;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		transition: .3s;
+		box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.2);
+	}
+	&__selected {
+		font-size: 20px;
+		line-height: 1px;
+	}
+	&__option {
+		height: 56px;
+		font-size: 20px;
+		line-height: 1;
+		padding: 19px 20px;
+		@media (min-width: $media-lg) {
+			padding-left: 34px;
+			padding-right: 34px;
+		}
+		&_selected,
+		&:hover {
+			background-color: #88704482;
+			transition: .3s;
+		}
+	}
+}

@@ -1,0 +1,174 @@
+include ../../components/accordion/index.pug
+include ../../components/tabs/index.pug
+include ../../components/menu-list/index.pug
+include ../../components/burger/index.pug
+include ../../components/slider/index.pug
+include ../../components/modal/index.pug
+include ../../components/columns/index.pug
+include ../../components/form/select/index.pug
+include ../../components/form/checkbox/index.pug
+include ../../components/form/input/index.pug
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="css/vendors.css")
+		link(rel="stylesheet", href="css/main.css")
+		script(defer src="js/main-min.js")
+		title hello world
+	body
+		-
+			const text = '<div class="content"><strong>Габариты внедорожника</strong> VX позволили разместить в салоне три ряда сидений. При этом каждое из семи мест – полноценное. Взрослым пассажирам будет комфортно даже на последнем ряду.</div>'
+			const text2 = '<div class="content"><strong><u>Габариты внедорожника</u></strong> VX позволили разместить в салоне три ряда сидений. При этом каждое из семи мест – полноценное. Взрослым пассажирам будет комфортно даже на последнем ряду.</div>'
+			const itemsMenu = [
+				{
+					item: 'Беговые дорожки',
+					submenu: [
+						'Всепогодный', 'Для помещений', 'Профессиональный', 'Любительский'
+					]
+				},
+				{
+					item: 'Велотренажеры',
+				},
+				{
+					item: 'Гребные тренажеры',
+				},
+				{
+					item: 'Еще один пункт меню',
+				},
+				{
+					item: 'Эллиптические тренажеры',
+					submenu: [
+						'Домашний', 'Профессиональный', 'Любительский'
+					]
+				},
+			]
+
+		header(block="header")
+			div(elem="wrap")
+				div(elem="img-wrap")
+					img(src="", alt="some logo")
+				+menuList({ items: itemsMenu })
+				a(elem="tel" href="#") 8 (800) 555-35-35
+			+burger
+		+accordion({
+			items: [
+				{
+					title: 'Цифровой кокпит',
+					text: 'Цифровой кокпит внедорожника VX включает два цветных дисплея 12,3 дюймов каждый. Разрешение экранов 1920x720 пикселей. Широкие возможности персонализации позволяют выбрать один из трех вариантов дизайна и графики.'
+				},
+				{
+					title: 'Семиместный салон',
+					text: 'Габариты внедорожника VX позволили разместить в салоне три ряда сидений. При этом каждое из семи мест – полноценное. Взрослым пассажирам будет комфортно даже на последнем ряду.'
+				},
+				{
+					title: 'Эксклюзивный КОМФОРТ',
+					text: 'В интерьере внедорожника EXEED VX каждый сможет расположиться с эксклюзивным комфортом, благодаря высококлассным материалам отделки и уникальным кожаным сиденьям анатомической формы от LEAR.'
+				},
+				{
+					title: 'Семиместный салон',
+					text
+				},
+				{
+					title: 'Цифровой кокпит',
+					text: 'Цифровой кокпит внедорожника VX включает два цветных дисплея 12,3 дюймов каждый. Разрешение экранов 1920x720 пикселей. Широкие возможности персонализации позволяют выбрать один из трех вариантов дизайна и графики.'
+				},
+			]
+		})(class="custom-class-here")
+		+tabs({
+			items: [
+				{
+					title: 'TAB 1',
+					text
+				},
+				{
+					title: 'TAB 1',
+					text: 'В интерьере внедорожника EXEED VX каждый сможет расположиться с эксклюзивным комфортом, благодаря высококлассным материалам отделки и уникальным кожаным сиденьям анатомической формы от LEAR.'
+				},
+				{
+					title: 'TAB 3',
+					text: 'Габариты внедорожника VX позволили разместить в салоне три ряда сидений. При этом каждое из семи мест – полноценное. Взрослым пассажирам будет комфортно даже на последнем ряду.'
+				},
+				{
+					title: 'TAB 4',
+					text: text2
+				},
+			]
+		})(class="custom-class-here")
+		p 
+			a.js-trigger-modal-btn.button(href="#modal-form") click me
+		p
+			a.js-trigger-modal-btn.button(href="#modal-form2") click me2
+		+modal()
+			.form-contacts
+				p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic rem sequi placeat quis maiores atque. Eveniet aspernatur id labore quo excepturi! Sequi necessitatibus consequatur earum quisquam magnam maxime explicabo quasi! Obcaecati distinctio neque id nobis dolorum. Odio qui itaque cupiditate animi dolorum ducimus, adipisci at perspiciatis sit suscipit vero nesciunt numquam. Libero natus delectus reiciendis molestiae? Itaque nam saepe architecto tenetur quam, provident beatae. Ad aliquam itaque similique quam laborum velit, animi alias? Quae ducimus, pariatur, dicta nihil atque eaque commodi voluptate reiciendis facere magnam esse qui, soluta voluptatibus sint! Ipsam aliquid minus cumque asperiores cupiditate in. Eum voluptatem fugit non nesciunt, exercitationem qui corrupti, rerum beatae, optio sunt at nemo. Corporis necessitatibus, quam eos aut cum perferendis enim. Debitis ea accusantium, reiciendis nulla ipsa hic, blanditiis in rerum eveniet culpa vero quaerat esse soluta autem est? Enim officia cum optio autem dolorum temporibus esse obcaecati? Cupiditate quisquam impedit odit ratione error temporibus, ipsa recusandae, incidunt vero assumenda magni earum officiis. Eveniet quae consequuntur ullam enim facilis fuga quas, consectetur excepturi, debitis impedit corrupti accusantium quis dolor. Quae saepe dolorem atque accusantium incidunt error enim ipsa nemo expedita est quas eligendi accusamus officia adipisci quidem ea velit, quod dolor quibusdam.
+		+modal('modal-form2')
+			.form-contacts
+				p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex error illo architecto voluptates quibusdam nostrum, adipisci necessitatibus asperiores quasi illum, ipsa quos earum optio vel rerum magnam ipsam voluptatum eos ratione accusamus doloribus nemo magni. Iusto exercitationem amet sed, voluptatum mollitia fugit cum, maxime aut dolores quis tempora deserunt natus qui quaerat minus, numquam praesentium id error rem odit fugiat voluptate quidem consequuntur? Molestiae fugiat deleniti consequuntur repudiandae atque illo nobis provident aperiam doloremque placeat? Corporis nemo officiis eveniet dolores soluta accusantium consequatur ipsam iusto totam officia magni excepturi laborum blanditiis cupiditate possimus, consequuntur maiores accusamus at sapiente est. Porro?
+		section(block="hero")
+			+slider({
+				slides: [
+					{
+						title: 'Title',
+						img: 'https://i.picsum.photos/id/482/1920/1080.jpg?hmac=WOOpg36fuOhzwR8Jl4Dcc_l6krSTlHl70b8BhoaXQqU',
+						text: 'Text',
+					},
+					{
+						title: 'Title2',
+						img: 'https://i.picsum.photos/id/482/1920/1080.jpg?hmac=WOOpg36fuOhzwR8Jl4Dcc_l6krSTlHl70b8BhoaXQqU',
+						text: 'Text2',
+					},
+					{
+						title: 'Title3',
+						img: 'https://i.picsum.photos/id/482/1920/1080.jpg?hmac=WOOpg36fuOhzwR8Jl4Dcc_l6krSTlHl70b8BhoaXQqU',
+						text: 'Text3',
+					},
+				]
+			})
+		div(block="adwantages")
+			.container
+				div(elem="items")
+					div(elem="item")
+						p Lorem ipsum dolor sit amet.
+					div(elem="item")
+						div Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, maiores?
+					div(elem="item")
+						div Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, maiores?
+					div(elem="item")
+						div Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, maiores?
+					div(elem="item")
+						p Lorem ipsum dolor sit amet.
+					div(elem="item")
+						div Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, maiores?
+					div(elem="item")
+						div Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, maiores?
+					div(elem="item")
+						div Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, maiores?
+		div(block="select-wrap")
+			+select({
+				label: 'Корпус-1',
+				options: ['Опция-1', 'Опция-2', 'Опция-3', 'Опция-4', 'Опция-5'],
+				name: 'select'
+			})
+			+select({
+				label: 'Корпус-2',
+				options: ['Опция-1', 'Опция-2', 'Опция-3', 'Опция-4', 'Опция-5'],
+				name: 'select'
+			})
+		+checkbox({
+			label: 'Показать только готовые'
+		})
+		+input({
+			label: 'Стоимость',
+			placeholder: 'до 6 500 000 ₽',
+		})
+		+checkboxGroup({
+			groupLabel: 'Вид из окна',
+			checkboxesLabels: ['на реку', 'на мост', 'во двор'],
+			name: 'view'
+		})
+		footer(block="footer")
+			+menuList({ items: itemsMenu })

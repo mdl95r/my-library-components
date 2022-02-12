@@ -1,0 +1,60 @@
+@import './vars';
+@import '../../../components/accordion/styles.scss';
+@import '../../../components/tabs/styles.scss';
+@import '../../../components/menu-list/styles.scss';
+@import '../../../components/modal/styles.scss';
+@import '../../../components/slider/styles.scss';
+@import '../../../components/columns/styles.scss';
+@import '../../../components/form/label/styles.scss';
+@import '../../../components/form/select/styles.scss';
+@import '../../../components/form/input/styles.scss';
+@import '../../../components/form/checkbox/styles.scss';
+@import './adwantages';
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+button {
+	padding: 0;
+	border: none;
+	background-color: transparent;
+}
+
+.header {
+	@import '../../../components/burger/styles.scss';
+}
+
+.form-contacts {
+	max-width: 700px;
+	padding: 20px;
+	background-color: #fff;
+	cursor: auto;
+	&__text {
+		color: #fff;
+	}
+}
+
+img {
+	display: block;
+    max-width: 100%;
+}
+
+.select-wrap {
+	max-width: 400px;
+}

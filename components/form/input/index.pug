@@ -1,0 +1,44 @@
+mixin input(data)
+	-
+		const defaultData = {
+			label: '',
+			placeholder: '',
+			type: 'text',
+			name: 'input-name',
+			min: '',
+		}
+
+		data = Object.assign(defaultData, data);
+
+		const { label, placeholder, type, name, min } = data
+
+	div.input-wrap(elem="input-wrap")&attributes(attributes)
+		label.label(elem="label" for=name) #{label}
+		input.input(elem="input" min=min || false, id=name, type=type, name=name placeholder=placeholder)
+		if block 
+			block
+
+
+mixin rangeNumberInput(data)
+	-
+		const defaultData = {
+			label: '',
+			inputs: [
+				{
+					placeholder: '',
+					name: '',
+					min: null,
+					max: null
+				}
+			],
+		}
+
+		data = Object.assign(defaultData, data);
+
+		const { label, inputs } = data
+
+	div(block="range-inputs")&attributes(attributes)
+		.label(elem="label") #{label}
+		div(elem="inputs-wrap")
+			each inputEl in inputs
+				input.input(elem="input" type="number" min=inputEl.min max=inputEl.max placeholder=inputEl.placeholder name=inputEl.name)

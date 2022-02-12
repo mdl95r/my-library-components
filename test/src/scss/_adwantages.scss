@@ -1,0 +1,17 @@
+.adwantages {
+	.container {
+		@include make-container(30px);
+	}
+	&__items {
+		@include make-row(30px);
+	}
+	&__item {
+		@media (min-width: 576px) {
+			@include make-col-ready(30px);
+			@include make-col(1, 2);
+		}
+		@media (min-width: 992px) {
+			@include make-col(1, 4);
+		}
+	}
+}

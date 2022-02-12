@@ -1,0 +1,27 @@
+mixin slider(data)
+	-
+		const defaultData = {
+			slides: [
+				{
+					title: 'Title',
+					img: 'https://picsum.photos/1500/600?image=111',
+					text: 'Text',
+				},
+			]
+		}
+		
+		data = Object.assign(defaultData, data);
+
+		const { slides } = data
+
+	.swiper-container
+		.swiper-wrapper
+			each slide, i in slides
+				.swiper-slide(elem="slide")
+					img(src=`${slide.img}`, alt="" elem="img")
+					div(elem="content")
+						div(elem="slide-title") #{slide.title}
+						div(elem="slide-text") #{slide.text}
+		.swiper-pagination
+		.swiper-button-prev(elem="button-arrow" mod="prev")
+		.swiper-button-next(elem="button-arrow" mod="next")

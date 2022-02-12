@@ -1,0 +1,59 @@
+.tabs {
+	padding: 30px 15px;
+	ul {
+		list-style: none;
+	}
+	&__menu {
+		display: flex;
+		padding: 0;
+		margin: 0;
+		overflow-x: auto;
+		@media (min-width: 999px) {
+			overflow-x: hidden;
+			flex-wrap: wrap;
+			margin-bottom: -15px;
+		}
+		&::-webkit-scrollbar { 
+			height: 0; 
+		}
+		&-item {
+			flex: 1 0 33%;
+			padding: 10px;
+			cursor: pointer;
+			background: rgb(255,255,255);
+			background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(112,78,181,1) 0%, rgba(243,243,243,1) 100%);
+			border: 1px solid #000;
+			user-select: none;
+			@media (min-width: 999px) {
+				flex: 0 0 15%;
+				margin-bottom: 15px;
+			}
+			&_active {
+				background: rgb(255,255,255);
+				background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(78,176,181,0.6825105042016807) 0%, rgba(243,243,243,1) 100%);
+				transition: .3s;
+			}
+			&:not(:last-child) {
+				border-right-color: transparent;
+			}
+		}
+	}
+	&__tabs-list {
+		padding: 0;
+		padding-top: 20px;
+	}
+	&__tab-item {
+		visibility: visible;
+		overflow: visible;
+		height: auto;
+		opacity: 1;
+		transition: opacity .3s;
+		&_hidden {
+			visibility: hidden;
+			overflow: hidden;
+			height: 0;
+			opacity: 0;
+			transition: opacity .3s;
+		}
+	}
+}

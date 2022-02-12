@@ -1,0 +1,56 @@
+mixin checkbox(data)
+	-
+		const defaultData = {
+			label: '',
+			name: 'checkbox',
+			i: 0
+		}
+
+		data = Object.assign(defaultData, data);
+		const { label, name, i } = data
+
+
+	label.label(elem="label")&attributes(attributes) !{label}
+		input.input-hidden(elem="input" type="checkbox" name=`${name}-${i + 1}`)
+		span.checkbox(elem="checkbox")
+		if block 
+			block
+
+
+mixin checkboxGroup(data)
+	-
+		const defaultData = {
+			groupLabel: '',
+			checkboxesLabels: [],
+			name: 'checkbox',
+		}
+
+		data = Object.assign(defaultData, data);
+
+		const { groupLabel, checkboxesLabels, name } = data
+		
+	div(block="checkboxes-group")&attributes(attributes)
+		div(elem="checkboxes-label") #{groupLabel}
+		div(elem="checkboxes-items")
+			each label, i in checkboxesLabels
+				+checkbox({label, name, i})
+
+
+mixin checkboxesCustom(data)
+	-
+		const defaultData = {
+			label: '',
+			inputs: []
+		}
+
+		data = Object.assign(defaultData, data);
+
+		const { label, inputs } = data
+
+	div(block="checkboxes-custom")&attributes(attributes)
+		label.label(elem="label") #{label}
+		div(elem="checkboxes")
+			each el, i in inputs
+				label(elem="button") 
+					input.input-hidden(elem="input" type="checkbox" name=`checkbox-rooms-${i + 1}`)
+					span(elem="text") #{el}

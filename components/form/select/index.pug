@@ -1,0 +1,20 @@
+mixin select(data)
+	-
+		const defaultData = {
+			label: '',
+			options: [],
+			selected: 'Выбрать',
+			name: 'select'
+		}
+
+		data = Object.assign(defaultData, data);
+		const { label, options, selected, name } = data
+
+	div(block="select")&attributes(attributes)
+		.label(elem="label") #{label}
+		.js-select-trigger(elem="head")&attributes(attributes)
+			span.js-select-selected(elem="selected") #{selected}
+			input.js-select-input.input-hidden(type="text" value=selected name=name)
+			ul.js-select-options(elem="options")
+				each option in options
+					li(elem="option") #{option}

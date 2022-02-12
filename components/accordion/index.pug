@@ -1,0 +1,38 @@
+mixin accordion(data)
+	-
+		const defaultData = {
+			items: [
+				{
+					title: 'Some title',
+					text: 'Some text'
+				}
+			]
+		}
+
+		data = Object.assign(defaultData, data);
+
+		const { items } = data
+
+	div(block="accordion")&attributes(attributes)
+		ul(elem="items")
+			each item in items 
+				+accordion-item(item)
+
+mixin accordion-item(data)
+	-
+		const defaultData = {
+			title: 'test title',
+			text: 'test text',
+		}
+
+		data = Object.assign(defaultData, data);
+
+		const { title, text } = data
+
+	li.js-accordion-item(elem="item")
+		div(elem="item-header")
+			div(elem="item-title") #{title}
+		.js-accordion-body(elem="item-body")
+			.js-accordion-content(elem="item-content") !{text}
+
+	// custom html if needed
